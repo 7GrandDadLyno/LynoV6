@@ -17,4 +17,4 @@ function boxnotify(text)
         messagebox(text, "Vape V4", 0)
      end
 end
-notify("Hey , Thanks For Using Lyno Pubic Config , Thanks For Joining Our Community ! Script loaded Enjoy.
+notify("Hey , Thanks For Using Lyno Pubic Config , Thanks For Joining Our Community ! Script loaded Enjoy.")
