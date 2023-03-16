@@ -1,3 +1,144 @@
+-- Made by TheMagicPiston
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TOH = Instance.new("TextButton")
+local Skywars = Instance.new("TextButton")
+local Netbypass = Instance.new("TextButton")
+local label = Instance.new("TextLabel")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+main.Position = UDim2.new(0.33593142, 0, 0.332515359, 0)
+main.Size = UDim2.new(0, 420, 0, 272)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+TOH.Name = "TOH"
+TOH.Parent = main
+TOH.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TOH.Position = UDim2.new(0.259527504, 0, 0.225730777, 0)
+TOH.Size = UDim2.new(0, 200, 0, 50)
+TOH.Font = Enum.Font.SourceSans
+TOH.Text = "Tower Of Hell"
+TOH.TextColor3 = Color3.fromRGB(255, 255, 255)
+TOH.TextSize = 14.000
+TOH.MouseButton1Down:connect(function()
+	local mt = getrawmetatable(game)
+	local old = mt.__namecall
+
+	setreadonly(mt, false)
+
+	mt.__namecall = newcclosure(function(self, ...)
+		local args = {...}
+		local method = getnamecallmethod()
+
+		if method == "Kick" then
+			return
+		end
+
+		return old(self, ...)
+	end)
+	setreadonly(mt, true)
+	game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript2:Remove()
+	game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript:Remove()
+end)
+
+Skywars.Name = "Skywars"
+Skywars.Parent = main
+Skywars.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Skywars.Position = UDim2.new(0.259527504, 0, 0.458679169, 0)
+Skywars.Size = UDim2.new(0, 200, 0, 50)
+Skywars.Font = Enum.Font.SourceSans
+Skywars.Text = "Skywars"
+Skywars.TextColor3 = Color3.fromRGB(255, 255, 255)
+Skywars.TextSize = 14.000
+Skywars.MouseButton1Down:connect(function()
+	if _G.AcBypassed == nil then
+		local plr = game:GetService("Players").LocalPlayer
+
+		if plr.PlayerGui.Extra:FindFirstChild("AntiSploitClient") and plr.PlayerGui.Extra:FindFirstChild("AntiSploitClient2") then
+			plr.PlayerGui.Extra.AntiSploitClient:Destroy()
+			plr.PlayerGui.Extra.AntiSploitClient2:Destroy()
+		end
+
+		plr.CharacterAdded:Connect(function()
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("AntiSploitClient"):Destroy()
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("AntiSploitClient2"):Destroy()
+		end)
+	end
+
+	_G.AcBypassed = true
+end)
+
+Netbypass.Name = "Netbypass"
+Netbypass.Parent = main
+Netbypass.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Netbypass.Position = UDim2.new(0.259527504, 0, 0.700198472, 0)
+Netbypass.Size = UDim2.new(0, 200, 0, 50)
+Netbypass.Font = Enum.Font.SourceSans
+Netbypass.Text = "Net Bypass"
+Netbypass.TextColor3 = Color3.fromRGB(255, 255, 255)
+Netbypass.TextSize = 14.000
+Netbypass.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://ghostbin.com/8oMWD/raw'))()
+end)
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+label.Position = UDim2.new(-1.85668468e-05, 0, -0.00353211164, 0)
+label.Size = UDim2.new(0, 420, 0, 50)
+label.Font = Enum.Font.SourceSans
+label.Text = "Anticheat Disabler  0.1"
+label.TextColor3 = Color3.fromRGB(255, 255, 255)
+label.TextSize = 14.000
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(226, 71, 71)
+close.Position = UDim2.new(0.905921817, 0, -0.00327048055, 0)
+close.Size = UDim2.new(0, 39, 0, 38)
+close.Font = Enum.Font.SourceSans
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(255, 255, 255)
+close.TextSize = 14.000
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true	
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0.0093530789, 0, 0.485596031, 0)
+openmain.Size = UDim2.new(0, 111, 0, 39)
+open.Active = true
+open.Draggable = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+open.Position = UDim2.new(-0.00866493955, 0, -0.00251694024, 0)
+open.Size = UDim2.new(0, 111, 0, 39)
+open.Font = Enum.Font.SourceSans
+open.Text = "Disabler"
+open.TextColor3 = Color3.fromRGB(255, 255, 255)
+open.TextSize = 14.000
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
+--script
 local sss = game:GetService("ServerScriptService")
 local cs = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
 local players = game:GetService("Players")
@@ -46,6 +187,7 @@ local CustomConfig = LIB("Render", {
     Default = false,
     HoverText = "skidded"
 })
+
 local CustomConfig = LIB("Render", {
     Name = "Auto Win | Beta !",
     Function = function(callback) 
