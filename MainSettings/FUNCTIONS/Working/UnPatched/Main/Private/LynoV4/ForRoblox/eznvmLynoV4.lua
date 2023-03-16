@@ -1,3 +1,15 @@
+local sss = game:GetService("ServerScriptService")
+local cs = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
+local players = game:GetService("Players")
+
+ChatService.SpeakerAdded:Connect(function(PlrName)
+	local Speaker = ChatService:GetSpeaker(PlrName)
+	for _, v in pairs(other) do
+		if players[PlrName].Name == v then
+			Speaker:SetExtraData('Tags', {{TagText = "Lyno Private User", TagColor = Color3.fromRGB(255, 255, 127)}})
+		end
+	end
+end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/Darkrai-X/main/Games/Bedwars"))()
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
