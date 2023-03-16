@@ -1,4 +1,4 @@
--- Made by TheMagicPiston
+-- Made by TheMagicPiston and Lyno , 7GrandDadLyno--
 
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
